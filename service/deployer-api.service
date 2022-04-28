@@ -1,0 +1,15 @@
+[Unit]
+Description=deployer-api
+
+[Service]
+# requires root for apache reload
+User=root
+WorkingDirectory=/services/deployer-api
+ExecStart=/services/deployer-api/run-deployer-api
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
